@@ -4,6 +4,7 @@ import agents.BookSellerAgent;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
+import javax.swing.JOptionPane;
 
 public class PurchaseOrderServer extends CyclicBehaviour {
 
@@ -25,6 +26,7 @@ public class PurchaseOrderServer extends CyclicBehaviour {
             if (price != null) {
                 reply.setPerformative(ACLMessage.INFORM);
                 System.out.println(title + " sold to agent " + msg.getSender().getName());
+                JOptionPane.showMessageDialog(null, title + " sold to agent " + msg.getSender().getName(), "It has been sold", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 reply.setPerformative(ACLMessage.FAILURE);
                 reply.setContent("not-available");
